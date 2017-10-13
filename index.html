@@ -344,8 +344,8 @@ window.onload = function() {
 var url_string = location.href;
 var url = new URL(url_string);
 var param = url.searchParams.get("strm");
-if(param == "streamme") streamme();
-else if (param == "twitch") twitch();
+if(param == 1) streamme();
+else if (param == 2) twitch();
 else youtube();
 
 }
@@ -691,11 +691,11 @@ function twitch() {
 <body>
 <div id="overlay">
 <div id="buttons"><div class="left">
-<img class='banner' id="home" src="https://kek.gg/i/7FT6L6.png" alt="Banner" /> <a href="#" onclick="streamme();" class="footer_links" title="Make the video embed streamme">Stream #1</a> | <a href="#" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Stream #2</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a></span></div><div class="right">
+<img class='banner' id="home" src="https://kek.gg/i/7FT6L6.png" alt="Banner" /> <a href="#" onclick="streamme();" class="footer_links" title="Make the video embed streamme">StreamMe</a> | <a href="#" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Twitch</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a></span></div><div class="right">
 Size: <div class="bar" id="slider"></div>
 </div></div>
 <div id="main">
-<div id="datStream"><img src="terralogofinal.png" /></div>
+<div id="datStream"><img src="https://imperialterra.github.io/" /></div>
 <!--
 <iframe width="100%" height="100%" src="https://www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&autoplay=true" scrolling="no" frameborder="0" id="ustream" allowfullscreen webkitallowfullscreen style="border: 0 none transparent;"></iframe>
 

@@ -229,7 +229,7 @@ a:visited.footer_links {
 .left {
     float:left;
     margin:0 auto;
-    position:relative;
+    position:absolute;
     padding-left:2px;
 }
 .middle {
@@ -237,11 +237,11 @@ a:visited.footer_links {
 }
 .right {
     float:right;
-    margin:0 auto;
+    margin:5px auto;
     padding-right:2px;
-    position:relative;
-    top:9px;
-    right:8px;
+    position:absolute;
+    top:8px !important;
+    right:2px;
 }
 .ui-slider-horizontal
 {
@@ -314,6 +314,7 @@ window.onload = function() {
     //    var url="http://imperialterra.x10host.com/embed.txt";
 //    var url="embed.txt";
 //    var url="https://api.ustream.tv/channels/18203009.json";
+// 
 
 //    $.get(url, function(d){
 //			   var regex=/twitch/;
@@ -336,9 +337,17 @@ window.onload = function() {
 //	 );
 //    stream();
 //    get_count();
-    youtube();
-    get_strm();
+//    youtube();
+//    get_strm();
 //    autoswitch();
+
+var url_string = location.href;
+var url = new URL(url_string);
+var param = url.searchParams.get("strm");
+if(param == "streamme") streamme();
+else if (param == "twitch") twitch();
+else youtube();
+
 }
 
 /*
@@ -368,6 +377,8 @@ function get_strm() {
 //		url: "https://api.hitbox.tv/media/live/" + channel,
 		url: "https://api.ustream.tv/channels/18203009.json",
 //                url: "https://xtitsrevivalx.api.channel.livestream.com/2.0/livestatus.json",
+
+//              url: "https://www.stream.me/api-live/v1/streams",
 //		url: "https://api.twitch.tv/kraken/streams/" + channel + "?method=get&callback=?",
 //                url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC8TvySDl3yC1D-0BCskN9bQ&key=AIzaSyAbDUf0Bz6CFeA1B-niPvDE1XTugaPQSSo",
 //                url: "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC8TvySDl3yC1D-0BCskN9bQ&eventType=live&type=video&key=AIzaSyAbDUf0Bz6CFeA1B-niPvDE1XTugaPQSSo",
@@ -459,7 +470,7 @@ function shuffle (array) {
 }
 
 function youtube() {
-    ap=1; live=0;
+//    ap=1; live=0;
     var tokens=vidids.split(',');
     //tokens.sort(function(a, b){return 0.5 - Math.random()});
     shuffle(tokens);
@@ -667,16 +678,24 @@ function mirror() {
 	document.getElementById('datStream').style.styleFloat = 'left';
     }
 }
+
+function streamme() {
+  document.getElementById("datStream").innerHTML="<iframe id='player' type='text/html' width='100%' height='100%' title='streamme' name='imperialterra' src='https://www.stream.me/embed/stream/imperialterra?hideChat=true&noPopoutButton=true' frameborder='0'></iframe>";
+}
+
+function twitch() {
+  document.getElementById("datStream").innerHTML="<iframe id='player' type='text/html' width='100%' height='100%' title='twitch' name='imperialterra' src='http://www.twitch.tv/imperialterra/embed' frameborder='0'></iframe>";
+}
 </script>
 </head>
 <body>
 <div id="overlay">
 <div id="buttons"><div class="left">
-<a href="https://steamcommunity.com/groups/imperialterra" title="Home" class="banner" id="home" target="_blank"><img src="https://kek.gg/i/7FT6L6.png" alt="Banner" /></a> <a href="#" onclick="stream();" class="footer_links" title="Make the video embed the livestream">Livestrm</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a class="footer_links" onclick="toggle();" href="#" title="Turn on/off the ap and stream autoswitch.">Rotate (<span id="rotate">on</span>)</a> | <a href="irc://rizon:6697/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a></span></div><div class="right">
+<img class='banner' id="home" src="https://kek.gg/i/7FT6L6.png" alt="Banner" /> <a href="#" onclick="streamme();" class="footer_links" title="Make the video embed streamme">Stream #1</a> | <a href="#" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Stream #2</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a></span></div><div class="right">
 Size: <div class="bar" id="slider"></div>
 </div></div>
 <div id="main">
-<div id="datStream"></div>
+<div id="datStream"><img src="terralogofinal.png" /></div>
 <!--
 <iframe width="100%" height="100%" src="https://www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=false&quality=best&autoplay=true" scrolling="no" frameborder="0" id="ustream" allowfullscreen webkitallowfullscreen style="border: 0 none transparent;"></iframe>
 

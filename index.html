@@ -347,9 +347,9 @@ window.onload = function() {
 
 var url_string = location.href;
 var url = new URL(url_string);
-var param = url.searchParams.get("strm");
-if(param == 1) streamme();
-else if (param == 2) twitch();
+var param = url.searchParams.get("player");
+if(param == 1 || param == "streamme" ) streamme();
+else if (param == 2 || param=="twitch") twitch();
 else youtube();
 
 }

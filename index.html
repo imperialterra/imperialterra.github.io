@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
 <!--
 Copyright (C) 2015 Buzzy
 
@@ -346,10 +347,10 @@ window.onload = function() {
 //    autoswitch();
 
 var url_string = location.href;
-var url = new URL(url_string);
-var param = url.searchParams.get("player");
-if(param == 1 || param == "streamme" ) streamme();
-else if (param == 2 || param=="twitch") twitch();
+var query = url_string.split("#");
+//window.alert(query[1]);
+if(query[1] == "streamme" ) streamme();
+else if (query[1] == "twitch") twitch();
 else youtube();
 
 }
@@ -693,7 +694,7 @@ function twitch() {
 </script>
 </head>
 <body>
-<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" /></div> <div class="left"><a href="#" onclick="streamme();" class="footer_links" title="Make the video embed streamme">StreamMe</a> | <a href="#" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Twitch</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" class="footer_links" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nStreamMe: https://www.stream.me/imperialterra\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTwatch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
+<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" /></div> <div class="left"><a href="#streamme" onclick="streamme();" class="footer_links" title="Make the video embed streamme">StreamMe</a> | <a href="#twitch" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Twitch</a> | <a href="#ap" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" class="footer_links" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nStreamMe: https://www.stream.me/imperialterra\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTwatch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
 </div></div>
 <div id="main">
 <div id="datStream"><img src="https://kek.gg/i/67D_wn.png" /></div>

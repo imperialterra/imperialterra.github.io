@@ -43,17 +43,25 @@ object {
 }
 a:link {
   text-decoration: none;
+  font-size: 14px;
+  color:#ccc;
 }
 
 a:visited {
   text-decoration: none;
+  font-size: 14px;
+  color:#ccc;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration:underline overline;
+  font-size: 14px;
+  color:#ccc;
 }
 a { 
-  outline: none !important; 
+  text-decoration: none;
+  font-size: 14px;
+  color:#ccc;
 }
 element { 
   outline: none;
@@ -134,22 +142,6 @@ body {
   margin: 0 auto;
 }
 
-#footer {
-  z-index:97;
-    width:100%;
-    height:20px !important;
-    font-weight:none;
-	position:relative;
-	padding: 5px 0 5px 0;
-    min-width:960px !important;
-    margin: 0 auto;
-    background-color:#252525;
-    font-size:14px;
-    color:#ccc;
-	bottom:0px;
-    font-family:"Courier New","Droid Sans Mono",monospace;
-}
-
 #datStream {
   width:60%;
   height:100%;
@@ -162,56 +154,6 @@ body {
   float:right;
 }
 
-.controls {
-  text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
-  margin:auto;
-  min-width:60px !important;
-  display:inline-block;
-  padding:4px 8px 4px 8px;
-  vertical-align:middle;
-  text-align:center;
-  font-size:12px;
-  font-weight:bold;
-  font-family:"Arial",sans-serif;
-  color:#fff;
-  border-color:#ccc;
-  border-style:outset;
-  border-width:2px;
-  background: #444;
-  background: -moz-linear-gradient(top, #000 0%, #111 50%, #222 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000), color-stop(50%,#111), color-stop(100%,#222));
-  cursor: pointer;
-}
-
-a:active.controls {
-  text-decoration: none;
-  font-family:"Arial",sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  top:1px;
-  left:1px;
-  position:relative;
-  border-style:inset;
-  background-color:#5A004A;
-}
-
-a:hover.footer_links {
-    text-decoration:underline overline;
-    color:#ccc;
-}
-a:active.footer_links {
-    color:#ccc;
-    font-size:14px;
-}
-a:link.footer_links {
-    color:#ccc;
-    font-size:14px;
-}
-a:visited.footer_links {
-    color:#ccc;
-    font-size:14px;
-}
-
 .bar {
   background-color:#ccc; 
   display:inline-block; 
@@ -220,7 +162,6 @@ a:visited.footer_links {
   margin:0 auto;
   color:#ccc;
 }
-
 
 .banner {
 float:left;
@@ -235,18 +176,19 @@ float:left;
     float:left;
     margin:0px auto;
     padding-left:12px;
-    padding-top: 10px !important;
+    padding-top: 8px !important;
+    position:relative;
+    display:block;
 }
-.middle {
-  //stub 
-}
+
 .right {
     float:right;
     margin:0px auto;
-    position:absolute;
-    padding-top:10px !important;
-//    padding-right:2px;
+    position:fixed;
+    padding-top:8px !important;
+    padding-right:8px;
     right:4px;
+    display:block;
 }
 .ui-slider-horizontal
 {
@@ -608,12 +550,10 @@ function dim() {
     if(dimmed==1) {
 	dimmed=0;
 	$('#buttons').css('opacity', '1');
-	$('#footer').css('opacity', '1');
     }
     else {
 	dimmed=1;
 	$('#buttons').css('opacity', '0.4');
-	$('#footer').css('opacity', '0.4');
     }
 }
 
@@ -685,21 +625,17 @@ function mirror() {
     }
 }
 
-function ustream() {
-       document.getElementById("datStream").innerHTML="<iframe src=\"//ustream.tv/embed/18203009?html5ui\" style=\"border: 0 none transparent;\"  webkitallowfullscreen allowfullscreen frameborder=\"no\" width=\"100%\" height=\"100%\"></iframe>";
+function random() {
+  document.getElementById("datStream").innerHTML='<iframe width="100%" height="100%" src="https://www.smashcast.tv/embed/imperialterra1" frameborder="0" allowfullscreen></iframe>';
 }
 
-function streamme() {
-  document.getElementById("datStream").innerHTML="<iframe width='100%' height='100%' src='https://www.stream.me/stream-embed/imperialterra/fullframe?hideChat=true' frameborder='0' allowfullscreen></iframe>";
-}
-
-function twitch() {
+function vidya() {
   document.getElementById("datStream").innerHTML="<iframe src='https://player.twitch.tv/?channel=imperialterrastrm' frameborder='0' allowfullscreen='true' scrolling='no' height='100%' width='100%'></iframe>";
 }
 </script>
 </head>
 <body>
-<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" /></div> <div class="left"><a href="#ustream" onclick="ustream();" class="footer_links" title="Make the video embed Ustream">Ustream</a> | <a href="#twitch" onclick="twitch();" class="footer_links" title="Make the video embed twitch">Twitch</a> | <a href="#" class="footer_links" title="Make the embed the YouTube." onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" class="footer_links" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" class="footer_links" title="Shoot us an email.">Email</a> | <a class="footer_links" href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" class="footer_links" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" class="footer_links" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" class="footer_links" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nStreamMe: https://www.stream.me/imperialterra\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTwatch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
+<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" /></div> <div class="left"><a href="#random" onclick="random();" title="bad goyim">Random</a> | <a href="#vidya" onclick="vidya();" title="videogames">Vidya</a> | <a href="#" title="Make the embed the autopilot" onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6667/imperialterra" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" title="Shoot us an email.">Email</a> | <a href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nStreamMe: https://www.stream.me/imperialterra\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTwatch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
 </div></div>
 <div id="main">
 <div id="datStream"><img src="https://kek.gg/i/67D_wn.png" /><br /><span style="font-size:120px;font-style:italic;font-family:'Times New Roman';">HAIL TERRA</span></div>

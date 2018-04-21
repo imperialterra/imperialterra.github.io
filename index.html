@@ -1,29 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-
-<!--
-Copyright (C) 2015 Buzzy
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
--->
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://www.w3.org/2005/10/profile">
 <title>The Imperial Terra Stream</title>
 <link rel="icon" type="image/x-icon" href="./favicon.ico?">
-<meta name="description" content="A place for bros by bros to kick back, relaaax, and enjoy the stream." />
-<meta name="keywords" content="games, movies, shows, music, concerts, documentaries, military, philosophy, anime, cartoons, television, sanic, tv, tabletop, warhammer, weeaboo, japan, dungeons, dragons, irc, twitch, livestream, space, politics, war, imperial, terra, retardy, nintendo, touhou, sega, computer, technology, mario, valve, playstation, vocaloid, reggie, steam, spoopy, mogulus, linux, autopilot, youtube, hipster, cheddar, fabulous, console, mlp, america, horror, shadowrun, hacking, trump, ustream, arcade, retro" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--<link rel="stylesheet" media="screen" type="text/css" title="DatStyle" href="strmstyle.css" />-->
 <style type="text/css">
@@ -205,6 +184,7 @@ float:left;
 #slider .ui-slider-handle { border-color:#ccc; }
 </style>
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
  <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <!--<script type="text/javascript" language="javascript" src="script.js"></script>-->
@@ -293,10 +273,10 @@ var url_string = location.href;
 var query = url_string.split("#");
 //console.log(query[1]);
 //console.log(url_string);
-if(query[1] == "random" ) random();
-else if (query[1] == "vidya") vidya();
+if(query[1] == "stream" || query[1] == "livestream" 
+    || query[1] == "vidya" || query[1] == "random") 
+  random();
 else youtube();
-
 }
 
 /*
@@ -439,7 +419,7 @@ function stream() {
 //		document.getElementById("datStream").innerHTML="<object width=\"100%\" height=\"100%\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\"><param name=\"flashvars\" value=\"cid=18203009&amp;autoplay=true\"/><param name=\"allowfullscreen\" value=\"true\"/><param name=\"allowscriptaccess\" value=\"always\"/><param name=\"src\" value=\"http://www.ustream.tv/flash/viewer.swf\"/><embed flashvars=\"cid=18203009&amp;autoplay=true\" width=\"100%\" height=\"100%\" allowfullscreen=\"true\" allowscriptaccess=\"always\" src=\"http://www.ustream.tv/flash/viewer.swf\" type=\"application/x-shockwave-flash\"></embed></object>";
 
 //			       document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"http://www.ustream.tv/embed/18203009?v=3&wmode=direct&autoplay=true&volume=100&showtitle=true&quality=best&volume=100\" scrolling=\"no\" frameborder=\"0\" allowfullscreen webkitallowfullscreen style=\"border: 0 none transparent;\"></iframe>";
-			       document.getElementById("datStream").innerHTML="<iframe src=\"http://ustream.tv/embed/18203009?html5ui\" style=\"border: 0 none transparent;\"  webkitallowfullscreen allowfullscreen frameborder=\"no\" width=\"100%\" height=\"100%\"></iframe>";
+  document.getElementById("datStream").innerHTML="<iframe src=\"http://ustream.tv/embed/18203009?html5ui\" style=\"border: 0 none transparent;\"  webkitallowfullscreen allowfullscreen frameborder=\"no\" width=\"100%\" height=\"100%\"></iframe>";
 
 //    } else {
 //	document.getElementById("datStream").innerHTML="<iframe width=\"100%\" height=\"100%\" src=\"http://hitbox.tv/#!/embed/" + channel + "?autoplay=true\" frameborder=\"0\" allowfullscreen></iframe>";
@@ -626,18 +606,8 @@ function mirror() {
     }
 }
 
-function random() {
-//  document.getElementById("datStream").innerHTML='<iframe width="100%" height="100%" src="https://www.smashcast.tv/embed/imperialterra1" frameborder="0" allowfullscreen></iframe>';
-  document.getElementById("datStream").innerHTML='<iframe width="100%" height="100%" src="https://www.ustream.tv/embed/18203009?html5ui" frameborder="0" framespacing="0"></iframe>';
-}
-
-function vidya() {
-  document.getElementById("datStream").innerHTML="<iframe src='https://player.twitch.tv/?channel=imperialterrastrm' frameborder='0' allowfullscreen='true' scrolling='no' height='100%' width='100%'></iframe>";
-}
-</script>
-</head>
-<body>
-<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" title="The Imperial Terra Stream" /></div> <div class="left"><a href="#random" onclick="random();" title="bad goyim">Random</a> | <a href="#vidya" onclick="vidya();" title="videogames">Vidya</a> | <a href="#" title="Make the embed the autopilot" onclick="youtube();">Autopilot</a> | <a href="#" onclick="popout_chat();" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" title="Shoot us an email.">Email</a> | <a href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nStreamMe: https://www.stream.me/imperialterra\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTwatch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
+</script></head><body>
+<div id="overlay"><div id="buttons"><div class="banner"><img src="https://kek.gg/i/7FT6L6.png" title="The Imperial Terra Stream" /></div> <div class="left"><a href="#stream" onclick="stream();" title="Make the embed the livestream">Livestream</a> | <a href="#ap" title="Make the embed the autopilot" onclick="youtube();">Autopilot</a> | <a href="irc://irc.rizon.net:6697/#imperialterra" title="Pop out chat into its own window.">Chat</a> | <a href="mailto:imperialterrastream@gmail.com" title="Shoot us an email.">Email</a> | <a href="#" title="TITS Is THE Stream" rel="sidebar" id="bookmark">Bookmark</a> | <a href="#" onclick="dim();" title="Change brightness of the frames.">Dim</a> | <a href="#" onclick="mirror();" title="Flip position of the chat/stream.">Mirror</a> | <a href="#" onclick="alert('Hub: https://imperialterra.github.io\nCytube: https://cytu.be/r/titsisthestream\nIRC: https://qchat.rizon.net/?channels=imperialterra\nSteam: https://steamcommunity.com/groups/imperialterra\nDiscord: https://discord.gg/9xXeBAu\n8chan: https://8ch.net/terra/\nVidme: https://vid.me/imperialterra\nYT: https://www.youtube.com/channel/UC8TvySDl3yC1D-0BCskN9bQ\nSmashcast: https://www.smashcast.tv/imperialterra1\nUstream: https://www.ustream.tv/channel/we-fabulous-now\nMogulus: https://original.livestream.com/titsrevival\nTw*tch: https://www.twitch.tv/imperialterrastrm');">Links</a></span></div><div class="right">Size: <div class="bar" id="slider"></div>
 </div></div>
 <div id="main">
 <div id="datStream"><img src="https://kek.gg/i/67D_wn.png" /><br /><span style="font-size:120px;font-style:italic;font-family:'Times New Roman';">HAIL TERRA</span></div>
@@ -647,6 +617,4 @@ function vidya() {
 <div id="datChat"><script id="cid0020000091926456494" data-cfasync="false" async src="https://st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"imperialterra","arch":"js","styles":{"a":"191919","b":100,"c":"cccccc","d":"cccccc","e":"000000","g":"ffffff","h":"000000","j":"ffffff","k":"cccccc","l":"191919","m":"191919","n":"FFFFFF","p":"10","q":"191919","r":100,"t":0,"sbc":"cccccc","surl":0,"fwtickm":1}}</script></div>
 -->
 <div id="datChat"><iframe src="https://kiwiirc.com/client/irc.rizon.net:+6697/?nick=Terran?&theme=cli#imperialterra" style="border:0; width:100%; height:100%;"></iframe></div>
-</div></div></div>
-</body>
-</html>
+</div></div></div></body></html>
